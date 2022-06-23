@@ -1,0 +1,29 @@
+<mat-menu #menu="matMenu" x-position="before">
+  <button mat-menu-item routerLink="/">
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <ng-container *ngIf="this.authService.user$ | async as user">
+    <span mat-menu-item matBadge="{{this.isEmailVerified(user)}}" matBadgeOverlap="false">
+      {{user.email}}
+    </span>
+  </ng-container>
+  <app-auth-login-button [isLogInNeeded]="false"></app-auth-login-button>
+</mat-menu>
+  <mat-toolbar color="primary" class="app-toolbar">
+    <button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm mat-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{this.title}}</span>
+    <span class="menu-button-spacer"></span>
+    <button mat-icon-button class="menu-button favorite-icon" aria-label="send vacancy">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="menu-button" aria-label="connect by email">
+      <mat-icon>mail </mat-icon>
+    </button>
+    <button mat-icon-button class="menu-button" aria-label="Example icon-button with share icon">
+      <mat-icon>link </mat-icon>
+    </button>
+    <app-auth-login-button ></app-auth-login-button>
+  </mat-toolbar>

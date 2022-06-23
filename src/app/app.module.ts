@@ -15,6 +15,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatCardModule} from "@angular/material/card";
 import { ResumeComponent } from './resume/resume.component';
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ResumeComponent } from './resume/resume.component';
     MatButtonModule,
     MatMenuModule,
     MatBadgeModule,
-    MatCardModule
+    MatCardModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
