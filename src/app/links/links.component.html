@@ -1,0 +1,25 @@
+<mat-menu #linksMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon svgIcon="linkedin-box"></mat-icon>
+    LinkedIn
+  </button>
+  <button mat-menu-item>
+    <mat-icon color="primary" svgIcon="telegram"></mat-icon>
+    Telegram
+  </button>
+  <button mat-menu-item>
+    <mat-icon color="primary" svgIcon="instagram"></mat-icon>
+    Instagram
+  </button>
+  <button mat-menu-item>
+    <mat-icon svgIcon="github"></mat-icon>
+    GitHub
+  </button>
+</mat-menu>
+
+<button mat-icon-button
+        [mat-menu-trigger-for]="linksMenu"
+        aria-label="links" class="menu-button" >
+  <mat-icon> chat bubble outline icon</mat-icon>
+</button>
+
