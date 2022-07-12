@@ -1,0 +1,18 @@
+<mat-menu #menu="matMenu">
+  <button mat-menu-item
+          (click)="backToMain()">
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <ng-container *ngIf="this.user">
+    <button mat-menu-item
+            (click)="isAdmin()"
+            matBadge="{{this.isEmailVerified(user)}}" matBadgeOverlap="false">
+      {{user.name}}
+    </button>
+  </ng-container>
+  <app-auth-login-button [isLogInNeeded]="false"></app-auth-login-button>
+</mat-menu>
+<button [mat-menu-trigger-for]="menu" mat-button>
+  <mat-icon>menu</mat-icon>
+</button>

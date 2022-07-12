@@ -4,9 +4,10 @@ import {AbstractComponent} from "../AbstractComponents";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends AbstractComponent implements OnInit {
+
   @Input() title: string = '';
 
   constructor(injector: Injector) {
@@ -16,8 +17,5 @@ export class HeaderComponent extends AbstractComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isEmailVerified(user: any): string {
-    return !user.email_verified ? "?" : ""
-  }
 
 }
