@@ -6,7 +6,7 @@
   </button>
   <ng-container *ngIf="this.user">
     <button mat-menu-item
-            (click)="isAdmin()"
+            (click)="this.openUser()"
             matBadge="{{this.isEmailVerified(user)}}" matBadgeOverlap="false">
       {{user.name}}
     </button>

@@ -19,6 +19,6 @@ export class MenuComponent extends AbstractComponent implements OnInit {
   }
 
   openUser() {
-    this.router.navigate(['/user']);
+    console.dir(this.user)
   }
 }
