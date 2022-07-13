@@ -1,0 +1,8 @@
+app-loading{
+  position: fixed;
+  max-width: 700px;
+  max-height: 700px;
+  top: 40%;
+  left: 50%;
+  box-sizing: border-box;
+}
