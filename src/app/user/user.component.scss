@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+.userInfo {
+  display: flex;
+}
+
+.avatar {
+  border-radius: 40%;
+  width: 70px;
+}
+
+
+@mixin codeBackground($palette) {
+  $JsonBackground: map-get($palette, 50);
+  $JsonBorder: map-get($palette, A100);
+  pre {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: $JsonBackground;
+    border: solid $JsonBorder 5px;
+  }
+}
+
+@include codeBackground(mat.$indigo-palette)

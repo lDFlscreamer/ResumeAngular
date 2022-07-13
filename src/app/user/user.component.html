@@ -1,5 +1,10 @@
 <p>user works!</p>
-<div *ngIf="auth.user$ | async as user">
+<div *ngIf="auth.user$ | async as user" class="userInfo">
+  <div>
+    <img [alt]="user.name +' avatar'" [src]="user.picture" class="avatar">
+  </div>
 
-
+  <div *ngIf="profileJson">
+    <pre class="profileJson">{{profileJson}}</pre>
+  </div>
 </div>
