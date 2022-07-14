@@ -21,10 +21,11 @@ import {CommonModule} from "@angular/common";
 import {AppRoutingModule} from './app-routing.module';
 import {MenuComponent} from './menu/menu.component';
 import {UserComponent} from './user/user.component';
-import {LinksComponent} from './links/links.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LoadingComponent} from './loading/loading.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { SocialLinksComponent } from './social-links/social-links.component';
+import { SocialButtonComponent } from './social-button/social-button.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ResumeComponent,
     MenuComponent,
     UserComponent,
-    LinksComponent,
     LoadingComponent,
+    SocialLinksComponent,
+    SocialButtonComponent,
   ],
   imports: [
     BrowserModule,
