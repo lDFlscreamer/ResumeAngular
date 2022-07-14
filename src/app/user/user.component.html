@@ -1,1 +1,13 @@
-<p>user works!</p>
+<div *ngIf="this.user" class="userCard">
+  <div>
+    <img [alt]="user.name +' avatar'" [src]="user.picture" class="avatar">
+  </div>
+  <div class="userInfo">
+    <div *ngFor="let field of user | keyvalue">
+      Key: <b>{{field.key}}</b> and Value: <b>{{field.value}}</b>
+    </div>
+  </div>
+</div>
+<div>
+  isAdmin:{{this.isAdmin()}}
+</div>

@@ -1,17 +1,19 @@
 <mat-menu #menu="matMenu">
-  <button mat-menu-item
-          (click)="backToMain()">
+  <button (click)="backToMain()"
+          mat-menu-item>
     <mat-icon>home</mat-icon>
     Home
   </button>
   <ng-container *ngIf="this.user">
-    <button mat-menu-item
-            (click)="this.openUser()"
-            matBadge="{{this.isEmailVerified(user)}}" matBadgeOverlap="false">
-      {{user.name}}
+    <button (click)="this.openUser()"
+            mat-menu-item>
+      <span matBadge="{{this.isEmailVerified(user)}}"
+            matBadgeColor="warn"
+            matBadgeOverlap="false">
+        {{user.preferred_username ? user.preferred_username : user.name}}
+      </span>
     </button>
   </ng-container>
-  <app-auth-login-button [isLogInNeeded]="false"></app-auth-login-button>
 </mat-menu>
 <button [mat-menu-trigger-for]="menu" mat-button>
   <mat-icon>menu</mat-icon>

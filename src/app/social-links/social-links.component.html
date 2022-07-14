@@ -1,0 +1,15 @@
+<mat-menu #linksMenu="matMenu">
+  <ng-template ngFor let-button [ngForOf]="this.socialButtons" >
+    <app-social-button socialPageLink="{{button.pageLink}}"
+                       socialName="{{button.socialName}}"
+                       svgIconName="{{button.svgIconName}}">
+    </app-social-button>
+  </ng-template>
+</mat-menu>
+
+<button [mat-menu-trigger-for]="linksMenu"
+        aria-label="links"
+        class="menu-button" mat-icon-button>
+  <mat-icon> chat bubble outline icon</mat-icon>
+</button>
+

@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+
+.userCard {
+  display: flex;
+  max-width: 950px;
+}
+
+.avatar {
+  border-radius: 40%;
+  width: 70px;
+}
+
+
+@mixin userInfoBackground($palette) {
+  $JsonBackground: map-get($palette, 50);
+  $JsonBorder: map-get($palette, A100);
+  .userInfo {
+    //display: inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: $JsonBackground;
+    border: solid $JsonBorder 5px;
+  }
+}
+
+@include userInfoBackground(mat.$indigo-palette)

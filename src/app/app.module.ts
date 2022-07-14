@@ -3,7 +3,10 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
+
+import {environment as env} from "../environments/environment";
 import {AuthModule} from '@auth0/auth0-angular';
+
 import {AuthButtonComponent} from './auth-button/auth-button.component';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from "@angular/material/icon";
@@ -18,8 +21,11 @@ import {CommonModule} from "@angular/common";
 import {AppRoutingModule} from './app-routing.module';
 import {MenuComponent} from './menu/menu.component';
 import {UserComponent} from './user/user.component';
-import {LinksComponent} from './links/links.component';
 import {HttpClientModule} from "@angular/common/http";
+import {LoadingComponent} from './loading/loading.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { SocialLinksComponent } from './social-links/social-links.component';
+import { SocialButtonComponent } from './social-button/social-button.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +35,14 @@ import {HttpClientModule} from "@angular/common/http";
     ResumeComponent,
     MenuComponent,
     UserComponent,
-    LinksComponent,
+    LoadingComponent,
+    SocialLinksComponent,
+    SocialButtonComponent,
   ],
   imports: [
     BrowserModule,
     AuthModule.forRoot({
-      domain: 'dev-rd1axuv2.us.auth0.com',
-      clientId: 'SkzVwd3mKMO2uOJCP7ocKv5I6aDCkpec'
+      ...env.auth,
     }),
     MatToolbarModule,
     MatIconModule,
@@ -47,7 +54,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatCardModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
