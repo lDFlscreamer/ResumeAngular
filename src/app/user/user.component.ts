@@ -1,24 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from "@auth0/auth0-angular";
+import {Component, Injector, OnInit} from '@angular/core';
+import {AbstractComponent} from "../AbstractComponents";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent extends AbstractComponent implements OnInit {
 
-  profileJson: string | undefined;
-
-  constructor(public auth: AuthService) {
+  constructor(injector: Injector) {
+    super(injector)
   }
 
   ngOnInit(): void {
-    this.auth.user$.subscribe(
-      (profile)=>{
-        this.profileJson=JSON.stringify(profile,null,2)
-      }
-    )
   }
 
 }
