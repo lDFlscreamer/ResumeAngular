@@ -8,8 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "config":
-      "ts-node -O '{\"module\": \"commonjs\"}' ./config_secrets.ts",
+    "config": "node ./config_secrets.js",
     "heroku-postbuild": "npm run config && ng build --aot"
   },
   "private": true,

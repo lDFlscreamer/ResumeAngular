@@ -1,4 +1,4 @@
-import {writeFile} from 'fs';
+const fs = require('fs');
 
 const targetPath = './auth_config.ts';
 
@@ -8,7 +8,7 @@ const envConfigFile = `export const AUTH_CONFIG = Object({
 })
 `;
 
-writeFile(targetPath, envConfigFile, 'utf8', (err) => {
+fs.writeFile(targetPath, envConfigFile, 'utf8', (err) => {
   if (err) {
     return console.log(err);
   }
