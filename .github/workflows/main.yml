@@ -6,14 +6,24 @@ on:
     branches: [ "master" ]
 
 jobs:
-    build:
+    prepape_secret_cred:
       runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [ 12.x, 14.x, 16.x ]
       steps:
+        - uses: actions/checkout@v3
+        - name: Node LTS versions
+          uses: msimerson/node-lts-versions@v1.1.1
+        - name: Use Node.js $
         - name: prepare a secrets
           env:
             AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
             AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID}}
-          run: node ./config_secrets.js
+        - run: node ./config_secrets.js
+    heroku_deploy:
+      runs-on: ubuntu-latest
+      steps:
         - uses: actions/checkout@v2
         - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
           with:
