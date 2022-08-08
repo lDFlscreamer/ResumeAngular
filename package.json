@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "config": "node ./config_secrets.js",
-    "heroku-postbuild": "npm run config && ng build --aot"
+    "heroku-postbuild": "ng build --aot"
   },
   "private": true,
   "dependencies": {
