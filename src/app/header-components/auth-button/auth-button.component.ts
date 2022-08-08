@@ -1,7 +1,7 @@
 import {Component, Inject, Injector, OnInit} from '@angular/core';
 import {AuthService} from "@auth0/auth0-angular";
 import {DOCUMENT} from '@angular/common';
-import {AbstractComponent} from "../AbstractComponents";
+import {AbstractComponent} from "../../AbstractComponents";
 
 
 @Component({

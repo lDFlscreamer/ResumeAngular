@@ -1,5 +1,5 @@
 import {Component, Injector, Input, OnInit} from '@angular/core';
-import {AbstractComponent} from "../AbstractComponents";
+import {AbstractComponent} from "../../AbstractComponents";
 
 @Component({
   selector: 'app-header',
