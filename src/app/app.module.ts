@@ -45,6 +45,8 @@ import {MatInputModule} from "@angular/material/input";
     LoadingComponent,
     SocialLinksComponent,
     SocialButtonComponent,
+    MessageDialogFormComponent,
+    MessageButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,11 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
