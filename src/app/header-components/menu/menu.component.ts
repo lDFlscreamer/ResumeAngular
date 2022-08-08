@@ -1,5 +1,5 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {AbstractComponent} from "../AbstractComponents";
+import {AbstractComponent} from "../../AbstractComponents";
 import {Router} from "@angular/router";
 
 @Component({
