@@ -28,10 +28,9 @@ export class SocialLinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.dir(this.socialButtons)
   }
 
-  appendSocialButton(socialName: string,
+  private appendSocialButton(socialName: string,
                      svgIconName: string,
                      pageLink: string) {
     this.socialButtons.push(
