@@ -7,10 +7,6 @@ import {BACK_END_URL} from "../../../environments/resume_spring_urls"
   styleUrls: ['./resume-pdf-view.component.scss']
 })
 export class ResumePdfViewComponent implements OnInit {
-  page: number = 1;
-  totalPages: number = 0;
-  isLoaded: boolean = false;
-
   constructor() {
   }
 
