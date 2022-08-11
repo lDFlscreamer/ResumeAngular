@@ -24,15 +24,19 @@ import {UserComponent} from './user/user.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LoadingComponent} from './loading/loading.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { SocialLinksComponent } from './header-components/social-link-components/social-links/social-links.component';
-import { SocialButtonComponent } from './header-components/social-link-components/social-button/social-button.component';
+import {SocialLinksComponent} from './header-components/social-link-components/social-links/social-links.component';
+import {SocialButtonComponent} from './header-components/social-link-components/social-button/social-button.component';
 
 import {MatDialogModule} from "@angular/material/dialog";
-import { MessageDialogFormComponent } from './header-components/message-components/message-dialog-form/message-dialog-form.component';
-import { MessageButtonComponent } from './header-components/message-components/message-button/message-button.component';
+import {
+  MessageDialogFormComponent
+} from './header-components/message-components/message-dialog-form/message-dialog-form.component';
+import {MessageButtonComponent} from './header-components/message-components/message-button/message-button.component';
 import {FormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {ResumePdfViewComponent} from './resume-components/resume-pdf-view/resume-pdf-view.component';
+import {PdfViewerModule} from "ng2-pdf-viewer";
 
 @NgModule({
   declarations: [
@@ -47,6 +51,7 @@ import {MatInputModule} from "@angular/material/input";
     SocialButtonComponent,
     MessageDialogFormComponent,
     MessageButtonComponent,
+    ResumePdfViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ import {MatInputModule} from "@angular/material/input";
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
