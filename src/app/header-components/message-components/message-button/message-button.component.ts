@@ -22,7 +22,7 @@ export class MessageButtonComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(MessageDialogFormComponent, {
-      width: '250px',
+      width: '40%',
       data: {
         author: this.author,
         messageContent: this.messageContent,
