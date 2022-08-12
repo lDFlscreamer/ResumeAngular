@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BACK_END_URL} from "../../../environments/resume_spring_urls"
+import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls"
 
 @Component({
   selector: 'app-resume-pdfs-view',
@@ -15,10 +15,7 @@ export class ResumePdfViewComponent implements OnInit {
 
 
   getPDF_Src() {
-    // request or pass into variable back end CV pdf link
-    let apiUrl = BACK_END_URL.SERVER_URL.concat(BACK_END_URL.API_PREFIX).concat(String(BACK_END_URL.SERVER_API_VERSION));
-    let javaCvPdfUrl = apiUrl.concat(BACK_END_URL.ENDPOINTS.JAVA_CV_PDF_FILE);
-    return javaCvPdfUrl
+    return API_URL.concat(BACK_END_URL.ENDPOINTS.JAVA_CV_PDF_FILE)
   }
 
 }
