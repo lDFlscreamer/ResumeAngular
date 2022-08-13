@@ -37,6 +37,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ResumePdfViewComponent} from './resume-components/resume-pdf-view/resume-pdf-view.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import { MessageViewComponent } from './header-components/message-components/message-view/message-view.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
     MessageDialogFormComponent,
     MessageButtonComponent,
     ResumePdfViewComponent,
+    MessageViewComponent,
   ],
   imports: [
     BrowserModule,

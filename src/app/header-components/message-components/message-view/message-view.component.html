@@ -1,0 +1,19 @@
+<div>
+  <ng-template [ngForOf]="messages" let-i="index" let-item ngFor>
+    <mat-card
+      matBadge="{{this.isMessageRead(item)}}" matBadgeColor="warn"
+      matBadgePosition="after">
+        <mat-card-title>title: {{item.title}}</mat-card-title>
+        <mat-card-subtitle>author: {{item.author}}</mat-card-subtitle>
+        <div>
+          {{item.content}}
+        </div>
+        <mat-card-actions>
+          <button (click)="this.readMessage(item._id)">
+            <mat-icon>remove_red_eye</mat-icon>
+            Read
+          </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+</div>
