@@ -4,3 +4,8 @@ mat-card{
   margin: 5px;
   display: inline-block;
 }
+
+mat-expansion-panel{
+  max-width: 100%;
+  min-width: 500px;
+}

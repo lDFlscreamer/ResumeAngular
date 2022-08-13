@@ -38,6 +38,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ResumePdfViewComponent} from './resume-components/resume-pdf-view/resume-pdf-view.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import { MessageViewComponent } from './header-components/message-components/message-view/message-view.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { MessageViewComponent } from './header-components/message-components/mes
     MatFormFieldModule,
     MatInputModule,
     PdfViewerModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
