@@ -9,13 +9,16 @@ import {MessageData} from "../message-data";
   styleUrls: ['./message-view.component.scss']
 })
 export class MessageViewComponent implements OnInit {
-
   messages: Array<MessageData> | undefined;
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+    this.reloadMessages()
+  }
+
+  reloadMessages() {
     let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE);
     this.http.get<Array<MessageData>>(endpointUrl)
       .subscribe({
@@ -27,18 +30,18 @@ export class MessageViewComponent implements OnInit {
           console.error('Can`t send message!', error);
         }
       });
+
   }
 
-
-  readMessage(id:string){
+  readMessage(message: MessageData) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.READ_MESSAGE)
-      .concat('/').concat(id);
-    this.http.post<any>(endpointUrl, httpOptions)
+    message.read = true;
+    let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE);
+    this.http.put<any>(endpointUrl, message, httpOptions)
       .subscribe({
         error: error => {
           //todo change when endpoint will be ready
@@ -48,8 +51,20 @@ export class MessageViewComponent implements OnInit {
 
   }
 
-  isMessageRead(message:MessageData){
-    return message.read?" ":"";
+  deleteMessage(id: string) {
+    let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE)
+      .concat('/').concat(id);
+    this.http.delete(endpointUrl)
+      .subscribe({
+        error: error => {
+          console.error('Can`t delete message!', error);
+        }
+      });
+
+  }
+
+  isMessageRead(message: MessageData) {
+    return message.read ? " " : "";
   }
 
 }
