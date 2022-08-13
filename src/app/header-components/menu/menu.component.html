@@ -10,10 +10,16 @@
       <span matBadge="{{this.isEmailVerified(user)}}"
             matBadgeColor="warn"
             matBadgeOverlap="false">
+        <mat-icon>account_circle</mat-icon>
         {{user.preferred_username ? user.preferred_username : user.name}}
       </span>
     </button>
   </ng-container>
+  <button (click)="openResume()"
+          mat-menu-item>
+    <mat-icon>description</mat-icon>
+    CV
+  </button>
 </mat-menu>
 <button [mat-menu-trigger-for]="menu" mat-button>
   <mat-icon>menu</mat-icon>
