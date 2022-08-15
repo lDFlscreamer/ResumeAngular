@@ -1,0 +1,16 @@
+<mat-expansion-panel (opened)="reloadMessages()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Mailbox
+    </mat-panel-title>
+    <mat-panel-description>
+      {{this.messages?this.messages.length:0}} messages
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <ng-template [ngForOf]="messages" let-i="index" let-item ngFor>
+   <app-message-card [item]="item"></app-message-card>
+  </ng-template>
+</mat-expansion-panel>
+
+

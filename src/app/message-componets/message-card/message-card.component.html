@@ -1,0 +1,24 @@
+<mat-card
+  matBadge="{{this.isMessageRead(item)}}" matBadgeColor="warn"
+  matBadgePosition="after">
+  <mat-card-title>{{item.title}}</mat-card-title>
+  <mat-card-subtitle>Author: {{item.author}}</mat-card-subtitle>
+  <div>
+    {{item.content}}
+    <mat-expansion-panel *ngIf="item.answer">
+      <mat-expansion-panel-header class="AnswerBlock">
+        <mat-panel-title>
+          Answer
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      {{item!.answer.answerText}}
+    </mat-expansion-panel>
+  </div>
+  <mat-card-actions>
+    <app-answer-button [item]="item"></app-answer-button>
+    <button (click)="this.deleteMessage(item._id)" mat-button>
+      <mat-icon>delete</mat-icon>
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>
