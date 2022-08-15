@@ -47,7 +47,7 @@ export class MessageCardComponent implements OnInit {
       })
     };
     let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE)
-      .concat('/').concat(id).concat("/Answer");
+      .concat('/').concat(id);
     this.http.post(endpointUrl, "answerTest", httpOptions)
       .subscribe({
         error: error => {
