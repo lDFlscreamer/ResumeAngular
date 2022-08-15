@@ -41,14 +41,9 @@ export class MessageCardComponent implements OnInit {
   }
 
   deleteMessage(id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
     let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE)
       .concat('/').concat(id);
-    this.http.post(endpointUrl, "answerTest", httpOptions)
+    this.http.delete(endpointUrl)
       .subscribe({
         error: error => {
           console.error('Can`t delete message!', error);
