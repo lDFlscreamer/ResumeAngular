@@ -6,7 +6,7 @@
 
   <span class="menu-button-spacer"></span>
 
-  <app-message-button></app-message-button>
+  <app-message-button *ngIf="this.user"></app-message-button>
   <app-social-links></app-social-links>
   <app-auth-login-button></app-auth-login-button>
 </mat-toolbar>

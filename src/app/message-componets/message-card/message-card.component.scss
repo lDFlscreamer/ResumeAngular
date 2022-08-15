@@ -1,3 +1,7 @@
+AnswerBlock{
+  max-width: 200px;
+}
+
 mat-card{
   min-width: 250px;
   max-width:500px ;
@@ -5,7 +9,3 @@ mat-card{
   display: inline-block;
 }
 
-mat-expansion-panel{
-  max-width: 100%;
-  min-width: 500px;
-}

@@ -1,17 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {MessageDialogFormComponent} from "../message-dialog-form/message-dialog-form.component";
 import {MessageDialogFormData} from "../message-dialog-form-data";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BACK_END_URL, API_URL} from "../../../../environments/resume_spring_urls"
+import {AbstractComponent} from "../../../AbstractComponents";
 
 @Component({
   selector: 'app-message-button',
   templateUrl: './message-button.component.html',
   styleUrls: ['./message-button.component.scss']
 })
-export class MessageButtonComponent implements OnInit {
-  constructor(public dialog: MatDialog, private http: HttpClient) {
+export class MessageButtonComponent extends AbstractComponent implements OnInit {
+  constructor(public dialog: MatDialog,
+              private http: HttpClient,
+              injector: Injector) {
+    super(injector);
   }
 
   ngOnInit(): void {
@@ -30,7 +34,6 @@ export class MessageButtonComponent implements OnInit {
   }
 
 
-  // todo create post request
   sendMessage(message: MessageDialogFormData) {
     const httpOptions = {
       headers: new HttpHeaders({

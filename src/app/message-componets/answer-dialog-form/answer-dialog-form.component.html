@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+    <p>Your Answer:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Please enter your answer here</mat-label>
+      <textarea #autosize="cdkTextareaAutosize"
+                [(ngModel)]="data"
+                cdkAutosizeMaxRows="5"
+                cdkAutosizeMinRows="1"
+                cdkTextareaAutosize
+                matInput></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Answer</button>
+</div>

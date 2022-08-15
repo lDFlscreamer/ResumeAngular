@@ -4,5 +4,10 @@ export interface MessageData {
   title: string;
   content: string;
   read: boolean;
+  answer:{
+    _id: string;
+    answerText:string;
+    timestamp: bigint;
+  }
   timestamp: bigint;
 }

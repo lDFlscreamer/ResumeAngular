@@ -37,9 +37,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ResumePdfViewComponent} from './resume-components/resume-pdf-view/resume-pdf-view.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
-import { MessageViewComponent } from './header-components/message-components/message-view/message-view.component';
+import { MessageViewComponent } from './message-componets/message-view/message-view.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {API_URL, BACK_END_URL} from "../environments/resume_spring_urls";
+import { MessageCardComponent } from './message-componets/message-card/message-card.component';
+import { AnswerDialogFormComponent } from './message-componets/answer-dialog-form/answer-dialog-form.component';
+import { AnswerButtonComponent } from './message-componets/answer-button/answer-button.component';
 
 
 @NgModule({
@@ -57,6 +60,9 @@ import {API_URL, BACK_END_URL} from "../environments/resume_spring_urls";
     MessageButtonComponent,
     ResumePdfViewComponent,
     MessageViewComponent,
+    MessageCardComponent,
+    AnswerDialogFormComponent,
+    AnswerButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,8 @@ import {API_URL, BACK_END_URL} from "../environments/resume_spring_urls";
       ...env.auth,
       httpInterceptor:{
         allowedList:[
-          `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}`
+          `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}`,
+          `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}/*`,
         ]
       }
     }),
