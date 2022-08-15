@@ -44,8 +44,7 @@ export class MessageViewComponent implements OnInit {
     this.http.put<any>(endpointUrl, message, httpOptions)
       .subscribe({
         error: error => {
-          //todo change when endpoint will be ready
-          console.error("future update will add this functionality")
+          console.error('Can`t update message!', error);
         }
       });
 
