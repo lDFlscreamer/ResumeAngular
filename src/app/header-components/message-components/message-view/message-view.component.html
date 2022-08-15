@@ -4,7 +4,7 @@
       Mailbox
     </mat-panel-title>
     <mat-panel-description>
-      {{this.messages!.length}} messages
+      {{this.messages?this.messages.length:0}} messages
     </mat-panel-description>
   </mat-expansion-panel-header>
 
