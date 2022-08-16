@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MessageData} from "../message-data";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls";
@@ -12,6 +12,9 @@ export class MessageCardComponent implements OnInit {
 
   @Input()
   item!: MessageData;
+
+  @Output()
+  reloadEvent = new EventEmitter();
 
   constructor(private http: HttpClient) {
   }
@@ -33,6 +36,9 @@ export class MessageCardComponent implements OnInit {
     let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE);
     this.http.put<any>(endpointUrl, message, httpOptions)
       .subscribe({
+        next: () => {
+          this.reloadEvent.emit();
+        },
         error: error => {
           console.error('Can`t update message!', error);
         }
@@ -45,6 +51,9 @@ export class MessageCardComponent implements OnInit {
       .concat('/').concat(id);
     this.http.delete(endpointUrl)
       .subscribe({
+        next: () => {
+          this.reloadEvent.emit();
+        },
         error: error => {
           console.error('Can`t delete message!', error);
         }

@@ -9,7 +9,7 @@
   </mat-expansion-panel-header>
 
   <ng-template [ngForOf]="messages" let-i="index" let-item ngFor>
-   <app-message-card [item]="item"></app-message-card>
+   <app-message-card [item]="item" (reloadEvent)="reloadMessages()"></app-message-card>
   </ng-template>
 </mat-expansion-panel>
 
