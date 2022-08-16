@@ -3,7 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {MessageDialogFormComponent} from "../message-dialog-form/message-dialog-form.component";
 import {MessageDialogFormData} from "../message-dialog-form-data";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BACK_END_URL, API_URL} from "../../../../environments/resume_spring_urls"
+import {API_URL, BACK_END_URL} from "../../../../environments/resume_spring_urls"
 import {AbstractComponent} from "../../../AbstractComponents";
 
 @Component({
@@ -24,8 +24,7 @@ export class MessageButtonComponent extends AbstractComponent implements OnInit 
   openDialog(): void {
     const dialogRef = this.dialog.open(MessageDialogFormComponent, {
       width: '40%',
-      data: {
-      }
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(message => {
