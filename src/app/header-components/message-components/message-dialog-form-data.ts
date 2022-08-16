@@ -1,5 +1,5 @@
 export interface MessageDialogFormData {
-  author: string;
+  authorName: string;
   title: string;
   content: string;
 }

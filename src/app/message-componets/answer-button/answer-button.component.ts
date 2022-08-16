@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls";
 import {MatDialog} from "@angular/material/dialog";
@@ -14,6 +14,9 @@ export class AnswerButtonComponent implements OnInit {
 
   @Input()
   item!: MessageData;
+
+  @Input()
+  reloadEvent!: EventEmitter<any>;
 
   constructor(public dialog: MatDialog, private http: HttpClient) {
   }
@@ -43,6 +46,9 @@ export class AnswerButtonComponent implements OnInit {
       .concat("/").concat(this.item._id).concat("/Answer");
     this.http.post<any>(endpointUrl, message, httpOptions)
       .subscribe({
+        next: () => {
+          this.reloadEvent.emit();
+        },
         error: error => {
           console.error('Can`t send answer!', error);
         }

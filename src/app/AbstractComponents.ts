@@ -41,7 +41,7 @@ export class AbstractComponent {
     if (!this.user)
       return false;
     let userRoles = this.getCustomField(this.user, 'roles');
-    return userRoles ? userRoles.includes('admin') : false;
+    return userRoles ? userRoles.includes('ROLE_ADMIN') : false;
   }
 
 

@@ -1,6 +1,7 @@
 export interface MessageData {
   _id: string;
-  author: string;
+  authorId: string;
+  authorName: string;
   title: string;
   content: string;
   read: boolean;
