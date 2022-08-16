@@ -2,7 +2,7 @@
   matBadge="{{this.isMessageRead(item)}}" matBadgeColor="warn"
   matBadgePosition="after">
   <mat-card-title>{{item.title}}</mat-card-title>
-  <mat-card-subtitle>Author: {{item.author}}</mat-card-subtitle>
+  <mat-card-subtitle>Author: {{item.authorName}}</mat-card-subtitle>
   <div>
     {{item.content}}
     <mat-expansion-panel *ngIf="item.answer">
