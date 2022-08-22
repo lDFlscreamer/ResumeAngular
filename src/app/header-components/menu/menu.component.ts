@@ -26,4 +26,8 @@ export class MenuComponent extends AbstractComponent implements OnInit {
     this.router.navigate(['/resume/pdfs']);
   }
 
+  openMailBox() {
+    this.router.navigate(['/message']);
+  }
+
 }

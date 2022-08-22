@@ -14,8 +14,8 @@
       {{item!.answer.answerText}}
     </mat-expansion-panel>
   </div>
-  <mat-card-actions>
-    <app-answer-button [item]="item" [reloadEvent]="this.reloadEvent"></app-answer-button>
+  <mat-card-actions *ngIf="this.user">
+    <app-answer-button *ngIf="this.isAdmin()" [item]="item" [reloadEvent]="this.reloadEvent"></app-answer-button>
     <button (click)="this.deleteMessage(item._id)" mat-button>
       <mat-icon>delete</mat-icon>
       Delete

@@ -24,7 +24,9 @@ export class MessageButtonComponent extends AbstractComponent implements OnInit 
   openDialog(): void {
     const dialogRef = this.dialog.open(MessageDialogFormComponent, {
       width: '40%',
-      data: {}
+      data: {
+        direct:false
+      }
     });
 
     dialogRef.afterClosed().subscribe(message => {

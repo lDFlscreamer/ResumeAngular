@@ -5,6 +5,7 @@ export interface MessageData {
   title: string;
   content: string;
   read: boolean;
+  direct: boolean;
   answer:{
     _id: string;
     answerText:string;
