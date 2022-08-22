@@ -4,6 +4,7 @@ import {ResumeComponent} from "./resume-components/resume/resume.component";
 import {UserComponent} from "./user/user.component";
 import {AuthGuard} from "@auth0/auth0-angular";
 import {ResumePdfViewComponent} from "./resume-components/resume-pdf-view/resume-pdf-view.component";
+import {MessageViewComponent} from "./message-componets/message-view/message-view.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'resume/pdfs',
     component: ResumePdfViewComponent
+  },
+  {
+    path: 'message',
+    component: MessageViewComponent
   },
   {
     path: 'user',

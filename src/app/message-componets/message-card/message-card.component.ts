@@ -1,14 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Injector, Input, OnInit, Output} from '@angular/core';
 import {MessageData} from "../message-data";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls";
+import {AbstractComponent} from "../../AbstractComponents";
 
 @Component({
   selector: 'app-message-card',
   templateUrl: './message-card.component.html',
   styleUrls: ['./message-card.component.scss']
 })
-export class MessageCardComponent implements OnInit {
+export class MessageCardComponent extends AbstractComponent implements OnInit {
 
   @Input()
   item!: MessageData;
@@ -16,7 +17,8 @@ export class MessageCardComponent implements OnInit {
   @Output()
   reloadEvent = new EventEmitter();
 
-  constructor(private http: HttpClient) {
+  constructor(injector: Injector,private http: HttpClient) {
+    super(injector)
   }
 
   ngOnInit(): void {

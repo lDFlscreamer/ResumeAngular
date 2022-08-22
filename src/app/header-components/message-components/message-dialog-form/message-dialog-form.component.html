@@ -11,6 +11,9 @@
       <input [(ngModel)]="data.title" matInput>
     </mat-form-field>
   </div>
+  <ng-container *ngIf="this.user">
+    <button mat-button (click)="directButtonClick()">{{data.direct?"Direct":"Public"}}</button>
+  </ng-container>
   <div>
     <p>content:</p>
     <mat-form-field appearance="fill">
@@ -25,5 +28,5 @@
   </div>
 </div>
 <div mat-dialog-actions>
-  <button [mat-dialog-close]="data" cdkFocusInitial mat-button>Send</button>
+  <button [mat-dialog-close]="data" mat-button>Send</button>
 </div>

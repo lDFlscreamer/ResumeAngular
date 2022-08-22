@@ -85,6 +85,13 @@ import {AnswerButtonComponent} from './message-componets/answer-button/answer-bu
             },
           },
           {
+            uri: `${API_URL}${BACK_END_URL.ENDPOINTS.PUBLIC_MESSAGE}`,
+            tokenOptions: {
+              audience: env.auth.audience
+            },
+            allowAnonymous:true
+          },
+          {
             uri: `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}/*`,
             tokenOptions: {
               audience: env.auth.audience
