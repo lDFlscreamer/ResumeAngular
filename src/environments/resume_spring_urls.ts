@@ -1,5 +1,5 @@
 export const BACK_END_URL={
-  SERVER_URL:'http://127.0.0.1:8080',
+  SERVER_URL:'https://screamer-resume-back.herokuapp.com',
   SERVER_API_VERSION:1,
   API_PREFIX:'/api/v',
   ENDPOINTS:{
