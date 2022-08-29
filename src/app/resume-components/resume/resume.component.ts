@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-resume',
+  selector: 'app-resume-form',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })

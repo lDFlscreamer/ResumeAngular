@@ -17,7 +17,7 @@ const routes: Routes = [
     component: ResumeComponent
   },
   {
-    path: 'resume/pdfs',
+    path: 'resume-form/pdfs',
     component: ResumePdfViewComponent
   },
   {

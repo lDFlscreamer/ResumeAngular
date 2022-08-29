@@ -43,6 +43,10 @@ import {API_URL, BACK_END_URL} from "../environments/resume_spring_urls";
 import {MessageCardComponent} from './message-componets/message-card/message-card.component';
 import {AnswerDialogFormComponent} from './message-componets/answer-dialog-form/answer-dialog-form.component';
 import {AnswerButtonComponent} from './message-componets/answer-button/answer-button.component';
+import {
+  ResumeUploadDialogFormComponent
+} from "./resume-form/resume-upload-dialog-form/resume-upload-dialog-form.component";
+import {ResumeUploadComponent} from './resume-form/resume-upload/resume-upload.component';
 
 
 @NgModule({
@@ -63,40 +67,33 @@ import {AnswerButtonComponent} from './message-componets/answer-button/answer-bu
     MessageCardComponent,
     AnswerDialogFormComponent,
     AnswerButtonComponent,
+    ResumeUploadDialogFormComponent,
+    ResumeUploadComponent,
   ],
   imports: [
     BrowserModule,
     AuthModule.forRoot({
       ...env.auth,
-      httpInterceptor:{
-        allowedList:[
+      httpInterceptor: {
+        allowedList: [
           {
             uri: `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}`,
-            httpMethod:HttpMethod.Post,
+            httpMethod: HttpMethod.Post,
             tokenOptions: {
               audience: env.auth.audience
             },
-            allowAnonymous:true
+            allowAnonymous: true
           },
-          {
-            uri: `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}`,
-            tokenOptions: {
-              audience: env.auth.audience
-            },
-          },
+          `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}`,
           {
             uri: `${API_URL}${BACK_END_URL.ENDPOINTS.PUBLIC_MESSAGE}`,
             tokenOptions: {
               audience: env.auth.audience
             },
-            allowAnonymous:true
+            allowAnonymous: true
           },
-          {
-            uri: `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}/*`,
-            tokenOptions: {
-              audience: env.auth.audience
-            },
-          },
+          `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}/*`,
+          `${API_URL}${BACK_END_URL.ENDPOINTS.RESUME}`,
         ]
       }
     }),
@@ -121,9 +118,9 @@ import {AnswerButtonComponent} from './message-componets/answer-button/answer-bu
   ],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:AuthHttpInterceptor,
-      multi:true
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true
     }
 
   ],
