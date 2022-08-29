@@ -1,0 +1,24 @@
+<div mat-dialog-content>
+  <div>
+    Position:
+    <mat-form-field>
+      <input [(ngModel)]="data.position" matInput>
+    </mat-form-field>
+  </div>
+
+  <div>
+
+    <button (click)="fileInput.click()" mat-raised-button type="button">
+      Choose File
+      <ng-container *ngIf="data.file">
+        {{data.file.name}}
+      </ng-container>
+    </button>
+    <input #fileInput (change)="onChange($event)" class="form-control" hidden type="file">
+
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <button [mat-dialog-close]="data" mat-button>Upload</button>
+</div>

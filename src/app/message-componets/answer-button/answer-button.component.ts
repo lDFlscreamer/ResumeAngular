@@ -43,7 +43,7 @@ export class AnswerButtonComponent implements OnInit {
       })
     };
     let endpointUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.MESSAGE)
-      .concat("/").concat(this.item._id).concat("/Answer");
+      .concat("/").concat(this.item._id).concat("/answer");
     this.http.post<any>(endpointUrl, message, httpOptions)
       .subscribe({
         next: () => {

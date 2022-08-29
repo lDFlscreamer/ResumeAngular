@@ -23,7 +23,7 @@ export class MenuComponent extends AbstractComponent implements OnInit {
   }
 
   openResume() {
-    this.router.navigate(['/resume/pdfs']);
+    this.router.navigate(['/resume-form/pdfs']);
   }
 
   openMailBox() {

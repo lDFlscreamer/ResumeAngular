@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls"
 
 @Component({
-  selector: 'app-resume-pdfs-view',
+  selector: 'app-resume-form-pdfs-view',
   templateUrl: './resume-pdf-view.component.html',
   styleUrls: ['./resume-pdf-view.component.scss']
 })
