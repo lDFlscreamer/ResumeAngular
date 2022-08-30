@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ResumeComponent} from "./resume-components/resume/resume.component";
 import {UserComponent} from "./user/user.component";
 import {AuthGuard} from "@auth0/auth0-angular";
 import {ResumePdfViewComponent} from "./resume-components/resume-pdf-view/resume-pdf-view.component";
@@ -13,11 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'resume',
-    component: ResumeComponent
+    path: 'resume/:id',
+    component: ResumePdfViewComponent
   },
   {
-    path: 'resume-form/pdfs',
+    path: 'resume',
     component: ResumePdfViewComponent
   },
   {
