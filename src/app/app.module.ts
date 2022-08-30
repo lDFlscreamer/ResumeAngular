@@ -16,7 +16,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatCardModule} from "@angular/material/card";
-import {ResumeComponent} from './resume-components/resume/resume.component';
 import {CommonModule} from "@angular/common";
 import {AppRoutingModule} from './app-routing.module';
 import {MenuComponent} from './header-components/menu/menu.component';
@@ -45,8 +44,11 @@ import {AnswerDialogFormComponent} from './message-componets/answer-dialog-form/
 import {AnswerButtonComponent} from './message-componets/answer-button/answer-button.component';
 import {
   ResumeUploadDialogFormComponent
-} from "./resume-form/resume-upload-dialog-form/resume-upload-dialog-form.component";
-import {ResumeUploadComponent} from './resume-form/resume-upload/resume-upload.component';
+} from "./resume-components/resume-form/resume-upload-dialog-form/resume-upload-dialog-form.component";
+import {ResumeUploadComponent} from './resume-components/resume-form/resume-upload/resume-upload.component';
+import {ResumeListViewComponent} from './resume-components/resume-list-view/resume-list-view.component';
+import {ResumeViewComponent} from './resume-components/resume-view/resume-view.component';
+import {ResumeCardComponent} from './resume-components/resume-card/resume-card.component';
 
 
 @NgModule({
@@ -54,7 +56,6 @@ import {ResumeUploadComponent} from './resume-form/resume-upload/resume-upload.c
     AppComponent,
     HeaderComponent,
     AuthButtonComponent,
-    ResumeComponent,
     MenuComponent,
     UserComponent,
     LoadingComponent,
@@ -69,6 +70,9 @@ import {ResumeUploadComponent} from './resume-form/resume-upload/resume-upload.c
     AnswerButtonComponent,
     ResumeUploadDialogFormComponent,
     ResumeUploadComponent,
+    ResumeListViewComponent,
+    ResumeViewComponent,
+    ResumeCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,15 @@ import {ResumeUploadComponent} from './resume-form/resume-upload/resume-upload.c
             allowAnonymous: true
           },
           `${API_URL}${BACK_END_URL.ENDPOINTS.MESSAGE}/*`,
-          `${API_URL}${BACK_END_URL.ENDPOINTS.RESUME}`,
+          `${API_URL}${BACK_END_URL.ENDPOINTS.USER_RESUME}`,
+          `${API_URL}${BACK_END_URL.ENDPOINTS.USER_RESUME}/*`,
+          {
+            uri: `${API_URL}${BACK_END_URL.ENDPOINTS.RESUME}/*`,
+            httpMethod: HttpMethod.Post,
+            tokenOptions: {
+              audience: env.auth.audience
+            }
+          },
         ]
       }
     }),

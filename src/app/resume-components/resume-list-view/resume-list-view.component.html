@@ -1,0 +1,4 @@
+<app-resume-form-upload (reloadEvent)="this.getResumeList()"></app-resume-form-upload>
+<ng-template [ngForOf]="resumes" let-i="index" let-item ngFor>
+  <app-resume-card [item]="item" (reloadEvent)="this.getResumeList()"></app-resume-card>
+</ng-template>

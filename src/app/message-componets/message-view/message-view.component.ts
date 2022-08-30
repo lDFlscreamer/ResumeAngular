@@ -31,7 +31,6 @@ export class MessageViewComponent extends AbstractComponent implements OnInit {
           console.error('Can`t reload message!', error);
         }
       });
-
   }
 
   getReloadMessageEndpointUrl() {

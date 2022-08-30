@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {API_URL, BACK_END_URL} from "../../../environments/resume_spring_urls";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {API_URL, BACK_END_URL} from "../../../../environments/resume_spring_urls";
 import {HttpClient} from "@angular/common/http";
 import {MatDialog} from "@angular/material/dialog";
 import {ResumeDialogFormData} from "../resume-dialog-form-data";
@@ -11,12 +11,18 @@ import {ResumeUploadDialogFormComponent} from "../resume-upload-dialog-form/resu
   styleUrls: ['./resume-upload.component.scss']
 })
 export class ResumeUploadComponent implements OnInit {
+  @Input()
+  resumeId!: string;
 
+  @Input()
+  text: string = "Upload new Resume";
 
-  private apiUrl = API_URL.concat(BACK_END_URL.ENDPOINTS.RESUME);
+  @Output()
+  reloadEvent = new EventEmitter();
 
   constructor(public dialog: MatDialog,
               private http: HttpClient) {
+    console.log(this.text)
   }
 
   ngOnInit(): void {
@@ -35,15 +41,18 @@ export class ResumeUploadComponent implements OnInit {
     });
   }
 
-  sendRequest(position: string, file: File) {
+  sendRequest(apiUrl: string, position: string, file: File) {
 
     const formData = new FormData();
 
     formData.append("file", file, file.name);
     formData.append("position", position);
 
-    return this.http.post(this.apiUrl, formData).subscribe(
+    return this.http.post(apiUrl, formData).subscribe(
       {
+        next: () => {
+          this.reloadEvent.emit();
+        },
         error: error => {
           console.error('Can`t send message!', error);
         }
@@ -51,7 +60,15 @@ export class ResumeUploadComponent implements OnInit {
     )
   }
 
-  private uploadResume(resume: ResumeDialogFormData) {
-    this.sendRequest(resume.position, resume.file)
+  public getApiUrl() {
+    if (this.resumeId) {
+      return API_URL.concat(BACK_END_URL.ENDPOINTS.RESUME).concat("/").concat(this.resumeId);
+    }
+    return API_URL.concat(BACK_END_URL.ENDPOINTS.USER_RESUME).concat("/uploadResume");
   }
+
+  private uploadResume(resume: ResumeDialogFormData) {
+    this.sendRequest(this.getApiUrl(), resume.position, resume.file)
+  }
+
 }
