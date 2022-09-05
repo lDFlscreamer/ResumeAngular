@@ -11,4 +11,4 @@ export const BACK_END_URL={
   }
 }
 export const API_URL = BACK_END_URL.SERVER_URL.concat(BACK_END_URL.API_PREFIX).concat(String(BACK_END_URL.SERVER_API_VERSION));
-export const MY_CURRENT_RESUME_ID = "fc39a3ca-71b4-4722-8639-09fa1919953a";
+export const MY_CURRENT_RESUME_ID = "f9b9b279-a806-4c98-b00d-de3b291e2766";
