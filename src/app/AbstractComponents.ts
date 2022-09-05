@@ -34,14 +34,14 @@ export class AbstractComponent {
   }
 
   getCustomField(user: User, CUSTOM_FIELD_NAME: string) {
-    return user[env.ID_TOKEN_NAMESPACE_PREFIX + '/' + CUSTOM_FIELD_NAME]
+    return user[env.auth.audience + '/' + CUSTOM_FIELD_NAME]
   }
 
   isAdmin() {
     if (!this.user)
       return false;
     let userRoles = this.getCustomField(this.user, 'roles');
-    return userRoles ? userRoles.includes('ROLE_ADMIN') : false;
+    return userRoles ? userRoles.includes('ADMIN') : false;
   }
 
 

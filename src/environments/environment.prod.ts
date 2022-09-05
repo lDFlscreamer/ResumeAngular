@@ -7,6 +7,5 @@ export const environment = {
     clientId:AUTH_CONFIG.clientId,
     audience:AUTH_CONFIG.audience,
     redirectUri: window.location.origin
-  },
-  ID_TOKEN_NAMESPACE_PREFIX: 'https://resume.com'
+  }
 };
